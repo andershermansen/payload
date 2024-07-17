@@ -40,6 +40,38 @@ export const PostsCollection: CollectionConfig = {
         ],
       }),
     },
+    {
+      name: 'parentCategory',
+      type: 'relationship',
+      filterOptions: () => {
+        return {
+          parent: {
+            exists: false,
+          },
+        }
+      },
+      label: 'Main category',
+      relationTo: 'categories',
+    },
+    {
+      name: 'subCategories',
+      type: 'relationship',
+      filterOptions: ({ siblingData }: FilterOptionsProps<any>) => {
+        const data = siblingData as { parentCategory?: string }
+        const parentCategory = data?.parentCategory
+        if (parentCategory) {
+          return {
+            parent: {
+              equals: parentCategory,
+            },
+          }
+        }
+        return false
+      },
+      hasMany: true,
+      label: 'Sub categories',
+      relationTo: 'categories',
+    },
     // {
     //   type: 'row',
     //   fields: [],

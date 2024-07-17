@@ -3,6 +3,7 @@ import path from 'path'
 
 import { buildConfigWithDefaults } from '../buildConfigWithDefaults.js'
 import { devUser } from '../credentials.js'
+import { CategoryCollection } from './collections/Category/index.js'
 // import { MediaCollection } from './collections/Media/index.js'
 import { PostsCollection, postsSlug } from './collections/Posts/index.js'
 import { MenuGlobal } from './globals/Menu/index.js'
@@ -14,6 +15,7 @@ export default buildConfigWithDefaults({
   collections: [
     PostsCollection,
     // MediaCollection
+    CategoryCollection,
   ],
   cors: ['http://localhost:3000', 'http://localhost:3001'],
   globals: [
