@@ -40,6 +40,30 @@ export const PostsCollection: CollectionConfig = {
         ],
       }),
     },
+    {
+      type: 'group',
+      name: 'MyGroupWithoutLabel',
+      label: false,
+      fields: [
+        {
+          name: 'field1InsideGroup',
+          label: 'Field 1 inside group',
+          type: 'text',
+        },
+        {
+          name: 'nestedGroup',
+          label: 'Nested Group',
+          type: 'group',
+          fields: [
+            {
+              name: 'field2InsideNestedGroup',
+              label: 'Field 2 inside nested group',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+    },
     // {
     //   type: 'row',
     //   fields: [],
