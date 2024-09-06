@@ -68,6 +68,11 @@ export const PostsCollection: CollectionConfig = {
     //   },
     //   relationTo: mediaSlug,
     // },
+    {
+      name: 'somethingRelation',
+      type: 'relationship',
+      relationTo: 'somethings',
+    },
   ],
   versions: {
     drafts: true,
