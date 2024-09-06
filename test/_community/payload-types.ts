@@ -14,6 +14,7 @@ export interface Config {
     posts: Post;
     simple: Simple;
     media: Media;
+    somethings: Something;
     users: User;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -86,17 +87,19 @@ export interface Post {
           }
       )[]
     | null;
+  somethingRelation?: (string | null) | Something;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "simple".
+ * via the `definition` "somethings".
  */
-export interface Simple {
+export interface Something {
   id: string;
-  text?: string | null;
+  name?: string | null;
+  mediaRelation?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -143,6 +146,16 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "simple".
+ */
+export interface Simple {
+  id: string;
+  text?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
