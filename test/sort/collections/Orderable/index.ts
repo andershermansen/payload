@@ -23,5 +23,21 @@ export const OrderableCollection: CollectionConfig = {
       type: 'relationship',
       relationTo: orderableJoinSlug,
     },
+    {
+      name: 'aGroup',
+      type: 'group',
+      fields: [
+        {
+          name: 'anArray',
+          type: 'array',
+          fields: [
+            {
+              name: 'aValue',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+    },
   ],
 }

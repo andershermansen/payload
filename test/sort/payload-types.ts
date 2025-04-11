@@ -196,6 +196,14 @@ export interface Orderable {
   _order?: string;
   title?: string | null;
   orderableField?: (string | null) | OrderableJoin;
+  aGroup?: {
+    anArray?:
+      | {
+          aValue?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -384,6 +392,16 @@ export interface OrderableSelect<T extends boolean = true> {
   _order?: T;
   title?: T;
   orderableField?: T;
+  aGroup?:
+    | T
+    | {
+        anArray?:
+          | T
+          | {
+              aValue?: T;
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
